@@ -73,6 +73,7 @@ After you're finished please remove all the comments and instructions!
 - Vet clinic database
 - animals table
 - Querying data
+- Species column
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
