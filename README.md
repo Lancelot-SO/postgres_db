@@ -73,7 +73,10 @@ After you're finished please remove all the comments and instructions!
 - Vet clinic database
 - animals table
 - Querying data
+- foreign keys relations
 - Species column
+- owners table
+- Join
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -182,6 +185,6 @@ I would like to thank microverse community for the support and guidance, also my
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
