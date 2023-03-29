@@ -12,9 +12,28 @@ CREATE TABLE animals (
 
 SELECT * FROM animals;
 
+-- project  two --
 ALTER TABLE animals ADD species VARCHAR(255);
 
+-- project three --
+CREATE TABLE owners
+(
+    id SERIAL  primary key,
+    full_name VARCHAR(250) ,
+    age  INT
+);
 
+CREATE TABLE species
+(
+    id SERIAL primary key,
+    name VARCHAR(250)
+);
+
+create sequence animal_id_seq;
+alter table animals alter column id set default nextval('animal_id_seq');
+ALTER TABLE animals drop column species;
+ALTER TABLE animals ADD COLUMN species_id INTEGER REFERENCES species(id);
+ALTER TABLE animals ADD COLUMN owner_id INTEGER REFERENCES owners(id);
 
 
 

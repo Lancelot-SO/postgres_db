@@ -39,3 +39,36 @@ select species,MIN(weight_kg) as min_weight_kg, max(weight_kg) as max_weight_kg 
 select species, avg(escape_attempts) from animals 
 where date_of_birth between '1990-01-01' and '2000-01-01' 
 group by species;
+
+--project three --
+select  owners.full_name as owners_full_name , animals.name as animal_name from animals 
+inner join owners on animals.owner_id=owners.id
+inner join species on animals.species_id=species.id
+where owners.full_name ='Melody Pond';
+
+select  animals.name as animal_name, species.name as species_name  from animals 
+inner join owners on animals.owner_id=owners.id
+inner join species on animals.species_id=species.id
+where species.name ='Pokemon';
+
+
+select  owners.full_name as owners_full_name , animals.name as animal_name from animals 
+full join owners on animals.owner_id=owners.id;
+
+select species.name as species_name, count(animals.name) as number_of_animals from animals 
+inner join species on animals.species_id=species.id
+group by species.name;
+
+select  owners.full_name as owners_full_name , animals.name as animal_name, species.name as species_name from animals 
+inner join owners on animals.owner_id=owners.id
+inner join species on animals.species_id=species.id
+where owners.full_name ='Jennifer Orwell' and species.name='Digimon';
+
+select  owners.full_name as owners_full_name , animals.name as animal_name, animals.escape_attempts from animals 
+inner join owners on animals.owner_id=owners.id
+where owners.full_name ='Dean Winchester'and animals.escape_attempts =0;
+
+select owners.full_name as owners_full_name, count(animals.name) as number_of_animals from animals 
+full join owners on animals.owner_id=owners.id
+group by owners.full_name
+order by number_of_animals desc;
