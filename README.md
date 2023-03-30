@@ -77,6 +77,9 @@ After you're finished please remove all the comments and instructions!
 - Species column
 - owners table
 - Join
+- vets table
+- specialization table
+- More information about the vets
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
