@@ -72,3 +72,66 @@ select owners.full_name as owners_full_name, count(animals.name) as number_of_an
 full join owners on animals.owner_id=owners.id
 group by owners.full_name
 order by number_of_animals desc;
+
+
+--project four--
+
+select  *  from animals 
+inner join visits on visits.animals_id=animals.id
+inner join vets on vets.id=visits.vets_id
+where  vets.name ='William Tatcher'
+order by date_of_visit desc
+limit 1
+
+
+select DISTINCT   *  from animals 
+inner join visits on visits.animals_id=animals.id
+inner join vets on vets.id=visits.vets_id
+where  vets.name ='Stephanie Mendez';
+
+
+select  *  from vets 
+left join specializations on specializations.vets_id=vets.id
+left join species on species.id =specializations.species_id;
+
+select  *  from animals 
+inner join visits on visits.animals_id=animals.id
+inner join vets on vets.id=visits.vets_id
+where  vets.name ='Stephanie Mendez' and date_of_visit between '2020-04-01' and '2020-04-30'
+
+
+select  animals.name as animal_name, count( animals.name) as number_of_visited from animals 
+inner join visits on visits.animals_id=animals.id
+inner join vets on vets.id=visits.vets_id
+group by animals.name 
+order by  number_of_visited desc
+
+select  *  from animals 
+inner join visits on visits.animals_id=animals.id
+inner join vets on vets.id=visits.vets_id
+where  vets.name ='Maisy Smith'
+order by date_of_visit asc
+limit 1
+
+select  *  from animals 
+inner join visits on visits.animals_id=animals.id
+inner join vets on vets.id=visits.vets_id
+order by date_of_visit desc
+limit 1
+
+
+
+select  count(visits.id) as number_of_vists  from animals
+inner join visits on visits.animals_id =animals.id
+inner join vets on vets.id=visits.vets_id
+left join specializations on specializations.vets_id=vets.id
+where specializations.species_id is  null;
+
+
+select species.name, count(species.name)  as number_vists_by_Maisy_Smith from animals
+inner join visits on visits.animals_id =animals.id
+inner join species on species.id =animals.species_id 
+inner join vets on vets.id=visits.vets_id
+left join specializations on specializations.vets_id=vets.id
+where vets.name ='Maisy Smith'
+group by species.name;
